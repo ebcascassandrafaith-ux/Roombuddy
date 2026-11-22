@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox spacing="14" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.template.browse.ListingSectionController">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <Label fx:id="titleLabel" styleClass="section-title"/>
+        <Button fx:id="seeAllButton" styleClass="circle-button-blue" onAction="#onSeeAll">
+            <graphic><Region styleClass="icon, icon-arrow-right"/></graphic>
+        </Button>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button fx:id="nextButton" styleClass="circle-button-blue" onAction="#onNext">
+            <graphic><Region styleClass="icon, icon-chevron-right"/></graphic>
+        </Button>
+    </HBox>
+
+    <ScrollPane fx:id="rowScroll" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="NEVER"
+                styleClass="row-scroll">
+        <HBox fx:id="row" spacing="22" styleClass="card-row"/>
+    </ScrollPane>
+</VBox>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="pageScroll" fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.template.browse.SavedListingsController">
+
+    <VBox spacing="26" styleClass="page-content">
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Button styleClass="circle-button-blue" onAction="#onBack">
+                <graphic><Region styleClass="icon, icon-chevron-left"/></graphic>
+            </Button>
+            <VBox spacing="2">
+                <Label text="Saved listings" styleClass="section-title"/>
+                <Label fx:id="summaryLabel" styleClass="muted-text"/>
+            </VBox>
+        </HBox>
+
+        <Label fx:id="statusLabel" styleClass="status-text" wrapText="true" maxWidth="Infinity"/>
+
+        <FlowPane fx:id="grid" hgap="44" vgap="32"/>
+    </VBox>
+</ScrollPane>

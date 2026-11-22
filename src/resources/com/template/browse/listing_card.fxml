@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="root" styleClass="listing-card" spacing="6" xmlns="http://javafx.com/javafx/17"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.template.browse.ListingCardController"
+      onMouseClicked="#onOpen">
+
+    <StackPane fx:id="photoBox" styleClass="card-photo">
+        <Region fx:id="placeholder" styleClass="photo-placeholder"/>
+        <Label fx:id="noPhotoLabel" text="No photo" styleClass="no-photo-text"/>
+        <ImageView fx:id="photoView" preserveRatio="false"/>
+    </StackPane>
+
+    <Label fx:id="nameLabel" styleClass="card-name"/>
+    <Label fx:id="priceLabel" styleClass="card-price"/>
+</VBox>

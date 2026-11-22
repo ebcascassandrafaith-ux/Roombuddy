@@ -1,0 +1,283 @@
+/* RoomBuddy stylesheet. Colors come from the Figma palette; change them here and the whole app follows. */
+
+.root {
+    -rb-vanilla: #FFF8E2;   /* Vanilla Cream */
+    -rb-butter: #FFEFB9;    /* Buttercream */
+    -rb-powder: #BCD1DE;    /* Powder Blue */
+    -rb-walnut: #5E442E;    /* Walnut Brown */
+    -rb-navy: #0B3A66;      /* headings */
+    -rb-blue: #3A6EA5;      /* buttons, links */
+    -rb-muted: #8A8F96;
+
+    -fx-font-family: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+}
+
+.root-pane { -fx-background-color: white; }
+.label { -fx-text-fill: #1c1c1c; }
+
+/* ---------- header ---------- */
+.header { -fx-background-color: -rb-butter; -fx-padding: 14 28 18 28; }
+.logo-box { -fx-cursor: hand; }
+.logo-text { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: -rb-navy; }
+
+.circle-button {
+    -fx-background-color: white;
+    -fx-background-radius: 50;
+    -fx-min-width: 38; -fx-min-height: 38; -fx-pref-width: 38; -fx-pref-height: 38;
+    -fx-max-width: 38; -fx-max-height: 38;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+    -fx-content-display: graphic-only;
+}
+.circle-button:hover { -fx-background-color: -rb-vanilla; }
+.circle-button .icon { -fx-background-color: -rb-blue; }
+
+.circle-button-blue {
+    -fx-background-color: -rb-blue;
+    -fx-background-radius: 50;
+    -fx-min-width: 34; -fx-min-height: 34; -fx-pref-width: 34; -fx-pref-height: 34;
+    -fx-max-width: 34; -fx-max-height: 34;
+    -fx-padding: 0;
+    -fx-cursor: hand;
+    -fx-content-display: graphic-only;
+}
+.circle-button-blue:hover { -fx-background-color: -rb-navy; }
+.circle-button-blue .icon { -fx-background-color: white; }
+
+.pill-button {
+    -fx-background-color: white;
+    -fx-background-radius: 30;
+    -fx-text-fill: -rb-blue;
+    -fx-font-weight: bold;
+    -fx-padding: 9 22 9 22;
+    -fx-cursor: hand;
+}
+.pill-button:hover { -fx-background-color: -rb-vanilla; }
+
+.search-pill {
+    -fx-background-color: white;
+    -fx-background-radius: 30;
+    -fx-border-color: #2F5F8A;
+    -fx-border-width: 2;
+    -fx-border-radius: 30;
+    -fx-padding: 4 6 4 18;
+    -fx-spacing: 8;
+}
+.search-field, .search-field:focused {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-border-width: 0;
+    -fx-focus-color: transparent;
+    -fx-faint-focus-color: transparent;
+    -fx-font-size: 14px;
+}
+
+/* ---------- icons (SVG paths drawn with -fx-shape) ---------- */
+.icon {
+    -fx-min-width: 18; -fx-min-height: 18; -fx-pref-width: 18; -fx-pref-height: 18;
+    -fx-max-width: 18; -fx-max-height: 18;
+}
+.icon-search {
+    -fx-shape: "M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z";
+}
+.icon-bell {
+    -fx-shape: "M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z";
+}
+.icon-menu {
+    -fx-shape: "M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z";
+}
+.icon-arrow-right {
+    -fx-shape: "M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z";
+}
+.icon-chevron-right {
+    -fx-shape: "M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z";
+}
+.icon-chevron-left {
+    -fx-shape: "M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z";
+}
+
+/* ---------- header dropdown menu ---------- */
+.context-menu {
+    -fx-background-color: -rb-vanilla;
+    -fx-background-radius: 16;
+    -fx-padding: 8;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.18), 14, 0.1, 0, 4);
+}
+.context-menu .menu-item { -fx-background-radius: 10; -fx-padding: 8 18 8 14; }
+.context-menu .menu-item .label { -fx-text-fill: -rb-blue; -fx-font-weight: bold; -fx-font-size: 13.5px; }
+.context-menu .menu-item:focused { -fx-background-color: -rb-butter; }
+
+/* ---------- page + rows ---------- */
+.page { -fx-background-color: white; }
+.page-scroll, .page-scroll > .viewport { -fx-background-color: transparent; }
+.page-scroll { -fx-background-insets: 0; -fx-padding: 0; }
+.page-content { -fx-padding: 26 44 40 44; -fx-background-color: white; }
+
+.section-title { -fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: -rb-navy; }
+
+.row-scroll, .row-scroll > .viewport { -fx-background-color: transparent; }
+.row-scroll { -fx-background-insets: 0; -fx-padding: 0; }
+.card-row { -fx-padding: 4 6 16 6; }
+
+.status-text { -fx-text-fill: -rb-muted; -fx-font-size: 15px; -fx-text-alignment: center; -fx-padding: 40; }
+
+/* ---------- listing card ---------- */
+.listing-card { -fx-cursor: hand; }
+.card-photo { -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.20), 12, 0.05, 0, 4); }
+.photo-placeholder { -fx-background-color: -rb-powder; -fx-background-radius: 26; }
+.no-photo-text { -fx-text-fill: -rb-walnut; -fx-font-weight: bold; }
+.card-name { -fx-font-weight: bold; -fx-font-size: 13.5px; -fx-padding: 4 0 0 2; }
+.card-price { -fx-text-fill: -rb-muted; -fx-font-size: 12px; -fx-padding: 0 0 0 2; }
+.listing-card:hover .card-name { -fx-text-fill: -rb-blue; }
+
+/* ---------- scrollbars (thin) ---------- */
+.scroll-bar:vertical { -fx-pref-width: 10; }
+.scroll-bar .thumb { -fx-background-color: #cfd6dc; -fx-background-radius: 5; }
+.scroll-bar .increment-button, .scroll-bar .decrement-button { -fx-padding: 0; }
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow { -fx-shape: " "; -fx-padding: 0; }
+
+/* =====================================================================
+   Step 3: listing details page
+   ===================================================================== */
+
+.details-title { -fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: -rb-navy; }
+.details-subtitle { -fx-font-size: 16px; -fx-text-fill: -rb-blue; -fx-font-weight: bold; }
+.muted-text { -fx-text-fill: -rb-muted; -fx-font-size: 12.5px; }
+.body-text { -fx-font-size: 13.5px; -fx-line-spacing: 3; -fx-text-fill: #333333; }
+.block-title { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: -rb-navy; }
+
+/* gallery */
+.gallery-tile { -fx-background-color: -rb-powder; -fx-background-radius: 18; }
+.gallery-more {
+    -fx-background-color: rgba(11, 58, 102, 0.75);
+    -fx-background-radius: 14;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 4 12 4 12;
+}
+
+/* host */
+.host-avatar {
+    -fx-background-color: -rb-powder;
+    -fx-background-radius: 50;
+    -fx-min-width: 56; -fx-min-height: 56; -fx-pref-width: 56; -fx-pref-height: 56;
+    -fx-max-width: 56; -fx-max-height: 56;
+}
+.host-initial { -fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: -rb-navy; }
+.host-name { -fx-font-size: 16px; -fx-font-weight: bold; }
+.verified-badge {
+    -fx-background-color: #D9F5DF;
+    -fx-background-radius: 12;
+    -fx-text-fill: #1E8E3E;
+    -fx-font-weight: bold;
+    -fx-font-size: 11.5px;
+    -fx-padding: 2 10 2 10;
+}
+
+/* amenities */
+.amenity-name { -fx-font-weight: bold; -fx-font-size: 14px; }
+.amenity-icon {
+    -fx-min-width: 26; -fx-min-height: 26; -fx-pref-width: 26; -fx-pref-height: 26;
+    -fx-max-width: 26; -fx-max-height: 26;
+}
+.amenity-default  { -fx-background-color: -rb-blue; -fx-shape: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"; }
+.amenity-water    { -fx-background-color: #2AA5E0; -fx-shape: "M12 2c-5.33 4.55-8 8.48-8 11.8 0 4.98 3.8 8.2 8 8.2s8-3.22 8-8.2c0-3.32-2.67-7.25-8-11.8z"; }
+.amenity-electric { -fx-background-color: #F2B01E; -fx-shape: "M7 2v11h3v9l7-12h-4l4-8z"; }
+.amenity-wifi     { -fx-background-color: #2EA84F; -fx-shape: "M1 9l2 2c4.97-4.97 13.03-4.97 18 0l2-2C16.93 2.93 7.08 2.93 1 9zm8 8l3 3 3-3c-1.65-1.66-4.34-1.66-6 0zm-4-4l2 2c2.76-2.76 7.24-2.76 10 0l2-2C15.14 9.14 8.87 9.14 5 13z"; }
+.amenity-security { -fx-background-color: -rb-navy; -fx-shape: "M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"; }
+
+/* price card (right side) */
+.price-card {
+    -fx-background-color: -rb-butter;
+    -fx-background-radius: 24;
+    -fx-padding: 24;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 14, 0.05, 0, 4);
+}
+.price-amount { -fx-font-size: 30px; -fx-font-weight: bold; -fx-text-fill: -rb-navy; }
+.price-unit { -fx-font-size: 15px; -fx-text-fill: #444444; }
+.available-text { -fx-text-fill: #1E8E3E; -fx-font-weight: bold; -fx-font-size: 12.5px; }
+
+.primary-button {
+    -fx-background-color: -rb-blue;
+    -fx-background-radius: 22;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 11 20 11 20;
+    -fx-cursor: hand;
+}
+.primary-button:hover { -fx-background-color: -rb-navy; }
+
+.secondary-button {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-border-color: -rb-blue;
+    -fx-border-radius: 22;
+    -fx-border-width: 1.5;
+    -fx-text-fill: -rb-blue;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20 10 20;
+    -fx-cursor: hand;
+    -fx-content-display: left;
+    -fx-graphic-text-gap: 8;
+}
+.secondary-button:hover { -fx-background-color: -rb-vanilla; }
+.secondary-button .icon { -fx-background-color: -rb-blue; }
+
+.icon-bookmark {
+    -fx-shape: "M17 3H7c-1.1 0-1.99.9-1.99 2L5 21l7-3 7 3V5c0-1.1-.9-2-2-2zm0 15l-5-2.18L7 18V5h10v13z";
+}
+.icon-bookmark-filled {
+    -fx-shape: "M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z";
+}
+
+/* "Added to saved listings" message */
+.toast {
+    -fx-background-color: rgba(11, 58, 102, 0.92);
+    -fx-background-radius: 22;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 10 22 10 22;
+}
+
+
+/* =====================================================================
+   Step 2: search filter chips (Price / Location / Type / Amenities)
+   ===================================================================== */
+
+.filter-bar {
+    -fx-background-color: #FFE49A;
+    -fx-background-radius: 18;
+    -fx-padding: 8 14 8 14;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.12), 8, 0.05, 0, 2);
+}
+.filter-chip {
+    -fx-background-color: #6A94C4;
+    -fx-background-radius: 14;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 4 16 4 16;
+    -fx-cursor: hand;
+}
+.filter-chip:hover { -fx-background-color: -rb-blue; }
+.filter-chip-active { -fx-background-color: -rb-navy; }
+.filter-clear {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-text-fill: -rb-blue;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+    -fx-padding: 4 14 4 14;
+    -fx-cursor: hand;
+}
+.filter-clear:hover { -fx-background-color: -rb-vanilla; }
+
+/* popups opened by the chips */
+.filter-popup { -fx-padding: 8 6 6 6; }
+.filter-popup-title { -fx-font-weight: bold; -fx-text-fill: -rb-navy; -fx-font-size: 13.5px; }
+.filter-field { -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: #cfd6dc; -fx-background-color: white; }
+.filter-error { -fx-text-fill: #C0392B; -fx-font-size: 12px; }
+.context-menu .custom-menu-item:focused { -fx-background-color: transparent; }
+.context-menu .check-box { -fx-text-fill: #333333; }
+.context-menu .radio-menu-item:focused { -fx-background-color: -rb-butter; }

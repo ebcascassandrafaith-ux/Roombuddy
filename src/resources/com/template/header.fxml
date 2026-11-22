@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="header" spacing="10" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.template.HeaderController">
+
+    <HBox alignment="CENTER_LEFT" spacing="12">
+        <StackPane styleClass="logo-box" onMouseClicked="#onLogoClicked">
+            <ImageView fx:id="logoView" fitHeight="52" preserveRatio="true"/>
+            <Label fx:id="logoText" text="RoomBuddy" styleClass="logo-text"/>
+        </StackPane>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <Button fx:id="bellButton" styleClass="circle-button" onAction="#onBell">
+            <graphic><Region styleClass="icon, icon-bell"/></graphic>
+        </Button>
+        <Button fx:id="hostButton" text="Become a Host" styleClass="pill-button" onAction="#onBecomeHost"/>
+        <Button fx:id="menuButton" styleClass="circle-button" onAction="#onMenu">
+            <graphic><Region styleClass="icon, icon-menu"/></graphic>
+        </Button>
+    </HBox>
+
+    <HBox alignment="CENTER">
+        <HBox styleClass="search-pill" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS"
+              maxWidth="680" prefWidth="680">
+            <TextField fx:id="searchField" styleClass="search-field" HBox.hgrow="ALWAYS"
+                       promptText="Search by name, barangay or address" onAction="#onSearch"/>
+            <Button styleClass="circle-button-blue" onAction="#onSearch">
+                <graphic><Region styleClass="icon, icon-search"/></graphic>
+            </Button>
+        </HBox>
+    </HBox>
+
+    <!-- the Price / Location / Type / Amenities chips are put here by MainController -->
+    <HBox fx:id="filterHost" alignment="CENTER" visible="false" managed="false"/>
+</VBox>

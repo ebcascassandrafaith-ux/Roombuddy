@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane styleClass="page" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.template.browse.HomeController">
+
+    <ScrollPane fx:id="pageScroll" fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll">
+        <VBox fx:id="sectionsBox" spacing="34" styleClass="page-content"/>
+    </ScrollPane>
+
+    <Label fx:id="statusLabel" styleClass="status-text" wrapText="true" visible="false" managed="false"/>
+</StackPane>
