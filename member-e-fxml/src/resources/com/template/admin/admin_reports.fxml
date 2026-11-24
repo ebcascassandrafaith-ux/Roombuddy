@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.template.admin.controller.ReportsController">
+    <stylesheets><URL value="@admin.css"/></stylesheets>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15" styleClass="admin-topbar">
+            <padding><Insets bottom="12" left="12" right="12" top="12"/></padding>
+            <Button onAction="#onBack" text="&lt; Dashboard"/>
+            <Label styleClass="admin-title" text="Reports"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="12">
+            <padding><Insets bottom="15" left="15" right="15" top="15"/></padding>
+            <TableView fx:id="table" prefHeight="420">
+                <columns>
+                <TableColumn prefWidth="60" text="ID">
+                    <cellValueFactory><PropertyValueFactory property="reportId"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="150" text="Reported By">
+                    <cellValueFactory><PropertyValueFactory property="reporterName"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="150" text="Reported User">
+                    <cellValueFactory><PropertyValueFactory property="reportedUser"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="170" text="Listing">
+                    <cellValueFactory><PropertyValueFactory property="listingName"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="330" text="Reason">
+                    <cellValueFactory><PropertyValueFactory property="reason"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="80" text="Status">
+                    <cellValueFactory><PropertyValueFactory property="status"/></cellValueFactory>
+                </TableColumn>
+                <TableColumn prefWidth="150" text="Date">
+                    <cellValueFactory><PropertyValueFactory property="createdAt"/></cellValueFactory>
+                </TableColumn>
+                </columns>
+            </TableView>
+            <Button onAction="#onResolve" text="Mark as Resolved"/>
+        </VBox>
+    </center>
+</BorderPane>
