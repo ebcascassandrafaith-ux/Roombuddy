@@ -281,3 +281,93 @@
 .context-menu .custom-menu-item:focused { -fx-background-color: transparent; }
 .context-menu .check-box { -fx-text-fill: #333333; }
 .context-menu .radio-menu-item:focused { -fx-background-color: -rb-butter; }
+
+/* =====================================================================
+   Member D: communication, viewing schedules and notifications
+   ===================================================================== */
+.communication-page {
+    -fx-background-color: white;
+}
+.communication-header {
+    -fx-background-color: -rb-butter;
+    -fx-padding: 14 28 14 28;
+}
+.communication-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -rb-navy;
+}
+.communication-content {
+    -fx-padding: 24 44 40 44;
+}
+.chat-messages {
+    -fx-background-color: white;
+}
+.chat-bubble {
+    -fx-background-radius: 16;
+    -fx-padding: 10 14 10 14;
+    -fx-wrap-text: true;
+    -fx-max-width: 420;
+}
+.chat-bubble-me {
+    -fx-background-color: -rb-blue;
+    -fx-text-fill: white;
+}
+.chat-bubble-host {
+    -fx-background-color: #EEF3F7;
+    -fx-text-fill: #222222;
+}
+.chat-compose {
+    -fx-background-color: -rb-vanilla;
+    -fx-padding: 12 18 12 18;
+}
+.chat-compose .text-area {
+    -fx-background-radius: 12;
+    -fx-border-radius: 12;
+    -fx-border-color: #C9D3DC;
+}
+.schedule-form,
+.schedule-card,
+.notification-card {
+    -fx-background-color: -rb-vanilla;
+    -fx-background-radius: 18;
+    -fx-padding: 16 18 16 18;
+}
+.schedule-date {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -rb-navy;
+}
+.schedule-status {
+    -fx-font-size: 11px;
+    -fx-font-weight: bold;
+    -fx-text-fill: -rb-muted;
+}
+.schedule-status-confirmed {
+    -fx-text-fill: #1E8E3E;
+}
+.schedule-status-declined {
+    -fx-text-fill: #C0392B;
+}
+.schedule-status-reschedule_proposed {
+    -fx-text-fill: #B27A00;
+}
+.notification-card {
+    -fx-border-width: 0 0 0 5;
+    -fx-border-color: transparent transparent transparent -rb-powder;
+}
+.notification-unread {
+    -fx-border-color: transparent transparent transparent -rb-blue;
+    -fx-background-color: #F7FBFE;
+}
+.notification-read {
+    -fx-opacity: 0.72;
+}
+.notification-message {
+    -fx-font-weight: bold;
+    -fx-text-fill: -rb-navy;
+}
+.notification-meta {
+    -fx-font-size: 11px;
+    -fx-text-fill: -rb-muted;
+}

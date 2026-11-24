@@ -7,6 +7,9 @@ import com.template.browse.Navigator;
 import com.template.browse.SavedListingsController;
 import com.template.browse.SearchResultsController;
 import com.template.browse.SeeAllController;
+import com.template.communication.ChatController;
+import com.template.communication.NotificationsController;
+import com.template.communication.ScheduleViewingController;
 import com.template.dao.ListingDAO;
 import com.template.model.Listing;
 import com.template.model.ListingGroup;
@@ -32,6 +35,9 @@ public class MainController implements Navigator {
     private static final String DETAILS_FXML = "/com/template/browse/listing_details_view.fxml";
     private static final String SEARCH_FXML  = "/com/template/browse/search_results_view.fxml";
     private static final String SAVED_FXML   = "/com/template/browse/saved_listings_view.fxml";
+    private static final String CHAT_FXML = "/com/template/communication/chat_view.fxml";
+    private static final String SCHEDULE_FXML = "/com/template/communication/schedule_viewing_view.fxml";
+    private static final String NOTIFICATIONS_FXML = "/com/template/communication/notifications_view.fxml";
 
     // injected from <fx:include fx:id="header" .../> in main.fxml  (fx:id + "Controller")
     @FXML private HeaderController headerController;
@@ -61,7 +67,7 @@ public class MainController implements Navigator {
     private void wireHeader() {
         headerController.setOnLogo(this::goHome);
         headerController.setOnSearch(query -> runSearch());
-        headerController.setOnBell(() -> comingSoon("Notifications", "Member D"));
+        headerController.setOnBell(this::showNotifications);
         headerController.setOnBecomeHost(() -> comingSoon("Become a Host", "Member B"));
         headerController.setOnProfile(() -> comingSoon("Profile", "Member A"));
         headerController.setOnSaved(this::showSaved);
@@ -117,12 +123,18 @@ public class MainController implements Navigator {
 
     @Override
     public void openChat(Listing listing) {
-        comingSoon("Chat with the host of \"" + listing.getPropertyName() + "\"", "Member D");
+        FxView<ChatController> view = FxView.load(CHAT_FXML);
+        view.getController().show(listing, this);
+        remember();
+        display(view.getRoot());
     }
 
     @Override
     public void openScheduleViewing(Listing listing) {
-        comingSoon("Schedule a viewing for \"" + listing.getPropertyName() + "\"", "Member D");
+        FxView<ScheduleViewingController> view = FxView.load(SCHEDULE_FXML);
+        view.getController().show(listing, this);
+        remember();
+        display(view.getRoot());
     }
 
     @Override
@@ -143,6 +155,14 @@ public class MainController implements Navigator {
             display(root);
         }
         savedView.getController().show(this);
+    }
+
+    /** Member D: inbox notifications (new messages and viewing updates). */
+    public void showNotifications() {
+        FxView<NotificationsController> view = FxView.load(NOTIFICATIONS_FXML);
+        view.getController().show(this);
+        remember();
+        display(view.getRoot());
     }
 
     // ---- search + filters (Step 2) ----

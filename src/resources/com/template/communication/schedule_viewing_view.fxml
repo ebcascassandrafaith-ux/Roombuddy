@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="communication-page"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.template.communication.ScheduleViewingController">
+    <HBox alignment="CENTER_LEFT" styleClass="communication-header" spacing="12">
+        <Button text="Back" styleClass="secondary-button" onAction="#onBack"/>
+        <VBox spacing="2">
+            <Label text="Schedule a viewing" styleClass="communication-title"/>
+            <Label fx:id="listingLabel" styleClass="muted-text"/>
+        </VBox>
+        <Region HBox.hgrow="ALWAYS"/>
+    </HBox>
+
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" styleClass="page-scroll">
+        <VBox spacing="18" styleClass="communication-content">
+            <VBox styleClass="schedule-form" spacing="12">
+                <Label text="Choose a date and time" styleClass="block-title"/>
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <DatePicker fx:id="datePicker"/>
+                    <ComboBox fx:id="timePicker" prefWidth="130"/>
+                    <Button text="Send request" styleClass="primary-button" onAction="#onSubmitRequest"/>
+                </HBox>
+            </VBox>
+
+            <VBox spacing="10">
+                <Label text="Viewing requests" styleClass="block-title"/>
+                <VBox fx:id="schedulesBox" spacing="10"/>
+            </VBox>
+        </VBox>
+    </ScrollPane>
+</VBox>
