@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<!-- Member B: one row in My Listings. Controller: MyListingCardController -->
+<HBox spacing="16" alignment="CENTER_LEFT" styleClass="card" stylesheets="@owner.css"
+      xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.template.owner.MyListingCardController">
+
+    <StackPane styleClass="card-photo-box" minWidth="160" prefWidth="160" minHeight="115" prefHeight="115">
+        <ImageView fx:id="photoView" fitWidth="160" fitHeight="115" preserveRatio="true"/>
+        <Label fx:id="noPhotoLabel" text="No photo" styleClass="muted"/>
+    </StackPane>
+
+    <VBox spacing="5" HBox.hgrow="ALWAYS" minWidth="0">
+        <HBox spacing="8" alignment="CENTER_LEFT">
+            <Label fx:id="titleLabel" styleClass="card-title"/>
+            <Label fx:id="statusBadge"/>
+            <Label fx:id="occupiedBadge" text="Occupied"/>
+        </HBox>
+        <Label fx:id="metaLabel" styleClass="muted" wrapText="true"/>
+        <Label fx:id="priceLabel" styleClass="card-price"/>
+        <Label fx:id="noteLabel" styleClass="muted" wrapText="true"/>
+        <Label fx:id="rejectionLabel" styleClass="error-text" wrapText="true"/>
+    </VBox>
+
+    <VBox spacing="6" alignment="CENTER" minWidth="150">
+        <Button fx:id="editButton" text="Edit" styleClass="outline-button" maxWidth="Infinity"
+                onAction="#onEdit"/>
+        <Button fx:id="occupiedButton" text="Mark occupied" styleClass="outline-button" maxWidth="Infinity"
+                onAction="#onToggleOccupied"/>
+        <Button fx:id="deleteButton" text="Delete" styleClass="ghost-button" maxWidth="Infinity"
+                onAction="#onDelete"/>
+    </VBox>
+</HBox>
