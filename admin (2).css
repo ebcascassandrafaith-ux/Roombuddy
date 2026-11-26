@@ -1,0 +1,159 @@
+/* RoomBuddy admin module: same Figma palette as the main app (cream, butter yellow, powder blue, walnut, navy).
+   Used by every admin FXML (see <stylesheets> at the top of each file). Colours are defined once on .root. */
+
+.root {
+    -rb-vanilla: #FFF8E2;
+    -rb-butter: #FFEFB9;
+    -rb-powder: #BCD1DE;
+    -rb-walnut: #5E442E;
+    -rb-navy: #0B3A66;
+    -rb-blue: #3A6EA5;
+    -rb-muted: #8A8F96;
+    -rb-danger: #C0392B;
+    -rb-danger-dark: #962D22;
+    -rb-line: #E6DDBF;
+
+    -fx-font-family: "Poppins", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    -fx-font-size: 13px;
+    -fx-background-color: -rb-vanilla;
+}
+
+.label { -fx-text-fill: #2b2b2b; }
+
+/* ---------- top bar ---------- */
+.admin-topbar {
+    -fx-background-color: -rb-butter;
+    -fx-border-color: transparent transparent -rb-line transparent;
+    -fx-border-width: 0 0 1.5 0;
+    -fx-effect: dropshadow(gaussian, rgba(94,68,46,0.12), 10, 0.05, 0, 3);
+}
+.admin-title { -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: -rb-navy; }
+.admin-topbar-text { -fx-text-fill: -rb-walnut; -fx-font-weight: bold; }
+.admin-topbar .button {
+    -fx-background-color: white;
+    -fx-text-fill: -rb-blue;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 6, 0.05, 0, 2);
+}
+.admin-topbar .button:hover { -fx-background-color: -rb-vanilla; -fx-text-fill: -rb-navy; }
+
+/* ---------- buttons ---------- */
+.button {
+    -fx-background-color: -rb-blue;
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 8 22 8 22;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(58,110,165,0.30), 8, 0.05, 0, 3);
+}
+.button:hover { -fx-background-color: -rb-navy; }
+.button:pressed { -fx-background-color: -rb-navy; -fx-translate-y: 1; }
+.button:focused { -fx-background-insets: 0; }
+.button:disabled { -fx-opacity: 0.5; }
+
+/* red buttons for Delete / Reject / Ban */
+.admin-danger {
+    -fx-background-color: white;
+    -fx-text-fill: -rb-danger;
+    -fx-border-color: -rb-danger;
+    -fx-border-radius: 20;
+    -fx-border-width: 1.5;
+    -fx-effect: null;
+}
+.admin-danger:hover { -fx-background-color: -rb-danger; -fx-text-fill: white; }
+.admin-danger:pressed { -fx-background-color: -rb-danger-dark; -fx-text-fill: white; }
+
+.admin-menu-button {
+    -fx-font-size: 14px;
+    -fx-background-color: white;
+    -fx-text-fill: -rb-navy;
+    -fx-background-radius: 22;
+    -fx-border-color: -rb-powder;
+    -fx-border-radius: 22;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(11,58,102,0.10), 10, 0.05, 0, 3);
+}
+.admin-menu-button:hover {
+    -fx-background-color: -rb-blue;
+    -fx-text-fill: white;
+    -fx-border-color: -rb-blue;
+}
+
+/* ---------- dashboard cards ---------- */
+.admin-card {
+    -fx-background-color: white;
+    -fx-background-radius: 22;
+    -fx-border-color: -rb-powder;
+    -fx-border-radius: 22;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(94,68,46,0.14), 14, 0.05, 0, 4);
+}
+.admin-card .label { -fx-text-fill: -rb-walnut; -fx-font-weight: bold; }
+.admin-card-number { -fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: -rb-navy; }
+
+/* ---------- login ---------- */
+.admin-login-bg { -fx-background-color: linear-gradient(to bottom, -rb-butter, -rb-vanilla); }
+.admin-login-title { -fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: -rb-navy; }
+.admin-hint { -fx-text-fill: -rb-muted; }
+.admin-error { -fx-text-fill: -rb-danger; -fx-font-weight: bold; }
+
+/* ---------- tables ---------- */
+.table-view {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: -rb-powder;
+    -fx-border-radius: 14;
+    -fx-border-width: 1.5;
+    -fx-padding: 1;
+    -fx-effect: dropshadow(gaussian, rgba(94,68,46,0.10), 10, 0.05, 0, 3);
+}
+.table-view .column-header-background { -fx-background-color: -rb-butter; -fx-background-radius: 13 13 0 0; }
+.table-view .column-header,
+.table-view .filler {
+    -fx-background-color: -rb-butter;
+    -fx-size: 38;
+    -fx-border-color: transparent transparent -rb-line transparent;
+}
+.table-view .column-header .label { -fx-text-fill: -rb-navy; -fx-font-weight: bold; -fx-alignment: center-left; }
+.table-row-cell { -fx-background-color: white; -fx-cell-size: 34; -fx-border-color: transparent; }
+.table-row-cell:odd { -fx-background-color: #FFFCF1; }
+.table-row-cell:hover { -fx-background-color: #EEF4F8; }
+.table-row-cell:selected { -fx-background-color: -rb-powder; }
+.table-row-cell:selected .text { -fx-fill: -rb-navy; }
+.table-cell { -fx-padding: 6 10 6 10; -fx-alignment: center-left; -fx-border-color: transparent; }
+.table-view:focused .table-row-cell:selected { -fx-background-color: -rb-powder; }
+.table-view .placeholder .label { -fx-text-fill: -rb-muted; }
+
+/* ---------- inputs ---------- */
+.text-field, .password-field, .combo-box-base {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+    -fx-border-color: -rb-powder;
+    -fx-border-radius: 14;
+    -fx-border-width: 1.5;
+    -fx-padding: 7 12 7 12;
+}
+.combo-box-base { -fx-padding: 2 4 2 4; }
+.text-field:focused, .password-field:focused, .combo-box-base:focused, .text-area:focused {
+    -fx-border-color: -rb-blue;
+    -fx-background-insets: 0;
+}
+.text-area {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: -rb-powder;
+    -fx-border-radius: 12;
+    -fx-border-width: 1.5;
+}
+.text-area .content { -fx-background-color: white; -fx-background-radius: 12; }
+.text-area .viewport { -fx-background-color: transparent; }
+
+/* ---------- scrollbars (thin, like the main app) ---------- */
+.scroll-bar:vertical { -fx-pref-width: 10; }
+.scroll-bar:horizontal { -fx-pref-height: 10; }
+.scroll-bar { -fx-background-color: transparent; }
+.scroll-bar .track { -fx-background-color: transparent; }
+.scroll-bar .thumb { -fx-background-color: #cfd6dc; -fx-background-radius: 5; }
+.scroll-bar .thumb:hover { -fx-background-color: -rb-powder; }
+.scroll-bar .increment-button, .scroll-bar .decrement-button { -fx-padding: 0; -fx-background-color: transparent; }
+.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow { -fx-shape: " "; -fx-padding: 0; }

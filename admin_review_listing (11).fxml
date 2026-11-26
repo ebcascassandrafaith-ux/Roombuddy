@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.template.controllers.ReviewListingController">
+    <stylesheets><URL value="@../admin.css"/></stylesheets>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15" styleClass="admin-topbar">
+            <padding><Insets bottom="12" left="12" right="12" top="12"/></padding>
+            <Button onAction="#onBack" text="&lt; Dashboard"/>
+            <Label styleClass="admin-title" text="Review Listing Verification"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="12">
+            <padding><Insets bottom="15" left="15" right="15" top="15"/></padding>
+            <Label text="Pending listings"/>
+            <TableView fx:id="table" prefHeight="220">
+                <columns>
+                    <TableColumn prefWidth="60" text="ID">
+                        <cellValueFactory><PropertyValueFactory property="listingId"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="150" text="Owner">
+                        <cellValueFactory><PropertyValueFactory property="ownerName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="200" text="Property">
+                        <cellValueFactory><PropertyValueFactory property="propertyName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="120" text="Type">
+                        <cellValueFactory><PropertyValueFactory property="propertyType"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="130" text="Barangay">
+                        <cellValueFactory><PropertyValueFactory property="barangay"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="90" text="Price">
+                        <cellValueFactory><PropertyValueFactory property="priceText"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="90" text="Room">
+                        <cellValueFactory><PropertyValueFactory property="roomType"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="160" text="Submitted">
+                        <cellValueFactory><PropertyValueFactory property="createdAt"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <Label text="Listing details and documents"/>
+            <TextArea fx:id="detailsArea" editable="false" prefRowCount="11"/>
+            <HBox spacing="10">
+                <Button onAction="#onViewFiles" text="Photos &amp; Documents"/>
+                <Button onAction="#onApprove" text="Approve"/>
+                <Button onAction="#onReject" text="Reject"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

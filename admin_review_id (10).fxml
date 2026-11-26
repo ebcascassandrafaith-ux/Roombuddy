@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.template.controllers.ReviewIdController">
+    <stylesheets><URL value="@../admin.css"/></stylesheets>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15" styleClass="admin-topbar">
+            <padding><Insets bottom="12" left="12" right="12" top="12"/></padding>
+            <Button onAction="#onBack" text="&lt; Dashboard"/>
+            <Label styleClass="admin-title" text="Review ID Verification"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="12">
+            <padding><Insets bottom="15" left="15" right="15" top="15"/></padding>
+            <Label text="Pending ID submissions"/>
+            <TableView fx:id="table" prefHeight="230">
+                <columns>
+                    <TableColumn prefWidth="60" text="ID">
+                        <cellValueFactory><PropertyValueFactory property="verificationId"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="170" text="User">
+                        <cellValueFactory><PropertyValueFactory property="userName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="230" text="Email">
+                        <cellValueFactory><PropertyValueFactory property="email"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="150" text="ID Type">
+                        <cellValueFactory><PropertyValueFactory property="idType"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="180" text="Submitted">
+                        <cellValueFactory><PropertyValueFactory property="submittedAt"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <Label fx:id="infoLabel"/>
+            <HBox fx:id="imageBox" spacing="20"/>
+            <HBox spacing="10">
+                <Button onAction="#onApprove" text="Approve"/>
+                <Button onAction="#onReject" text="Reject"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>

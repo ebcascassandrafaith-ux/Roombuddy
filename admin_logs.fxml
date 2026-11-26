@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.template.controllers.AdminLogsController">
+    <stylesheets><URL value="@../admin.css"/></stylesheets>
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15" styleClass="admin-topbar">
+            <padding><Insets bottom="12" left="12" right="12" top="12"/></padding>
+            <Button onAction="#onBack" text="&lt; Dashboard"/>
+            <Label styleClass="admin-title" text="Admin Logs"/>
+        </HBox>
+    </top>
+    <center>
+        <VBox spacing="12">
+            <padding><Insets bottom="15" left="15" right="15" top="15"/></padding>
+            <TableView fx:id="table" prefHeight="440">
+                <columns>
+                    <TableColumn prefWidth="70" text="Log ID">
+                        <cellValueFactory><PropertyValueFactory property="logId"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="150" text="Admin">
+                        <cellValueFactory><PropertyValueFactory property="adminName"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="160" text="Action">
+                        <cellValueFactory><PropertyValueFactory property="action"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="120" text="Target Type">
+                        <cellValueFactory><PropertyValueFactory property="targetType"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="80" text="Target ID">
+                        <cellValueFactory><PropertyValueFactory property="targetId"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="330" text="Remarks">
+                        <cellValueFactory><PropertyValueFactory property="remarks"/></cellValueFactory>
+                    </TableColumn>
+                    <TableColumn prefWidth="160" text="Date">
+                        <cellValueFactory><PropertyValueFactory property="createdAt"/></cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+            <Button onAction="#onRefresh" text="Refresh"/>
+        </VBox>
+    </center>
+</BorderPane>
