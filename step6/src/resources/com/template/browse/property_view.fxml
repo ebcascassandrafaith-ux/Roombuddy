@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fx:id="pageScroll" fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll"
+            xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.template.browse.PropertyController">
+
+    <stylesheets>
+        <URL value="@rooms.css"/>
+    </stylesheets>
+
+    <VBox spacing="22" styleClass="page-content">
+
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Button styleClass="circle-button-blue" onAction="#onBack">
+                <graphic><Region styleClass="icon, icon-chevron-left"/></graphic>
+            </Button>
+        </HBox>
+
+        <Label fx:id="statusLabel" styleClass="status-text" wrapText="true" maxWidth="Infinity"/>
+
+        <VBox fx:id="detailsBox" spacing="26">
+
+            <!-- the blue card: house name, photo collage, "Dormitory in Lapasan, CDO" -->
+            <VBox styleClass="property-banner" spacing="14">
+                <Label fx:id="titleLabel" styleClass="property-title" wrapText="true"/>
+                <HBox fx:id="gallery" spacing="12" alignment="TOP_LEFT"/>
+                <VBox spacing="2">
+                    <Label fx:id="headlineLabel" styleClass="property-headline"/>
+                    <Label fx:id="factsLabel" styleClass="property-facts"/>
+                    <Label fx:id="addressLabel" styleClass="property-facts"/>
+                </VBox>
+            </VBox>
+
+            <!-- one card per room (filled by the controller) -->
+            <VBox fx:id="roomsBox" spacing="18"/>
+
+            <!-- hosted by -->
+            <Label fx:id="hostedByLabel" styleClass="block-title" wrapText="true"/>
+            <HBox styleClass="host-card" spacing="18" alignment="CENTER_LEFT">
+                <StackPane fx:id="hostAvatar" styleClass="host-avatar"/>
+                <VBox spacing="4">
+                    <Label fx:id="hostLabel" styleClass="host-name"/>
+                    <Label fx:id="hostBadge" text="Verified" styleClass="verified-badge"/>
+                    <Label fx:id="hostingLabel" styleClass="muted-text"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </VBox>
+</ScrollPane>

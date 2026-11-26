@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<StackPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.template.browse.ListingDetailsController">
+
+    <stylesheets>
+        <URL value="@rooms.css"/>
+    </stylesheets>
+
+    <ScrollPane fx:id="pageScroll" fitToWidth="true" hbarPolicy="NEVER" styleClass="page-scroll">
+        <VBox spacing="22" styleClass="page-content">
+
+            <HBox alignment="CENTER_LEFT" spacing="12">
+                <Button styleClass="circle-button-blue" onAction="#onBack">
+                    <graphic><Region styleClass="icon, icon-chevron-left"/></graphic>
+                </Button>
+            </HBox>
+
+            <Label fx:id="statusLabel" styleClass="status-text" wrapText="true" maxWidth="Infinity"/>
+
+            <VBox fx:id="detailsBox" spacing="26">
+
+                <!-- title -->
+                <VBox spacing="2">
+                    <Label fx:id="titleLabel" styleClass="details-title" wrapText="true"/>
+                    <Label fx:id="subtitleLabel" styleClass="details-subtitle"/>
+                    <Label fx:id="addressLabel" styleClass="muted-text"/>
+                </VBox>
+
+                <!-- photos (filled by the controller) -->
+                <HBox fx:id="gallery" spacing="14" alignment="TOP_LEFT"/>
+
+                <!-- left: host, amenities, description    right: price card -->
+                <HBox spacing="40" alignment="TOP_LEFT">
+
+                    <VBox spacing="20" HBox.hgrow="ALWAYS">
+                        <HBox spacing="14" alignment="CENTER_LEFT">
+                            <StackPane fx:id="hostAvatar" styleClass="host-avatar"/>
+                            <VBox spacing="3">
+                                <Label fx:id="hostLabel" styleClass="host-name"/>
+                                <HBox spacing="10" alignment="CENTER_LEFT">
+                                    <Label fx:id="hostBadge" text="Verified" styleClass="verified-badge"/>
+                                    <Label fx:id="hostingLabel" styleClass="muted-text"/>
+                                </HBox>
+                            </VBox>
+                        </HBox>
+
+                        <Separator/>
+
+                        <Label text="What this place offers" styleClass="block-title"/>
+                        <VBox fx:id="amenitiesBox" spacing="16"/>
+
+                        <Separator/>
+
+                        <Label text="About this place" styleClass="block-title"/>
+                        <Label fx:id="descriptionLabel" styleClass="body-text" wrapText="true"/>
+                    </VBox>
+
+                    <VBox styleClass="price-card" spacing="14" minWidth="300" prefWidth="330" maxWidth="330">
+                        <HBox alignment="BASELINE_LEFT" spacing="8">
+                            <Label fx:id="priceLabel" styleClass="price-amount"/>
+                            <Label text="per month" styleClass="price-unit"/>
+                        </HBox>
+                        <Label text="AVAILABLE" styleClass="available-text"/>
+
+                        <!-- "3 months advance / 2 months deposit" -->
+                        <HBox styleClass="rent-terms" alignment="CENTER">
+                            <VBox alignment="CENTER" spacing="2" HBox.hgrow="ALWAYS">
+                                <Label fx:id="advanceLabel" styleClass="terms-number"/>
+                                <Label fx:id="advanceUnit" styleClass="terms-text"/>
+                            </VBox>
+                            <VBox alignment="CENTER" spacing="2" HBox.hgrow="ALWAYS">
+                                <Label fx:id="depositLabel" styleClass="terms-number"/>
+                                <Label fx:id="depositUnit" styleClass="terms-text"/>
+                            </VBox>
+                        </HBox>
+                        <Label fx:id="ownerNote" text="This is your own listing." styleClass="muted-text"/>
+
+                        <Button fx:id="messageButton" text="Click to message host" styleClass="primary-button"
+                                maxWidth="Infinity" onAction="#onMessageHost"/>
+                        <Button fx:id="viewingButton" text="Schedule a viewing" styleClass="secondary-button"
+                                maxWidth="Infinity" onAction="#onScheduleViewing"/>
+                        <Button fx:id="saveButton" text="Save" styleClass="secondary-button"
+                                maxWidth="Infinity" onAction="#onToggleSave">
+                            <graphic><Region fx:id="bookmarkIcon" styleClass="icon, icon-bookmark"/></graphic>
+                        </Button>
+                    </VBox>
+                </HBox>
+
+                <Separator/>
+
+                <!-- house rules -->
+                <VBox spacing="12">
+                    <Label text="House Rules" styleClass="block-title"/>
+                    <VBox fx:id="rulesBox" spacing="8"/>
+                </VBox>
+
+                <!-- explore more -->
+                <VBox fx:id="moreSection" spacing="16">
+                    <HBox alignment="CENTER_LEFT" spacing="12">
+                        <Label text="Explore more options" styleClass="section-title"/>
+                        <Button styleClass="circle-button-blue" onAction="#onMoreOptions">
+                            <graphic><Region styleClass="icon, icon-chevron-right"/></graphic>
+                        </Button>
+                    </HBox>
+                    <FlowPane fx:id="moreGrid" hgap="28" vgap="24"/>
+                </VBox>
+            </VBox>
+        </VBox>
+    </ScrollPane>
+
+    <!-- small message like "Added to saved listings" -->
+    <Label fx:id="toastLabel" styleClass="toast" visible="false" StackPane.alignment="BOTTOM_CENTER">
+        <StackPane.margin><Insets bottom="28"/></StackPane.margin>
+    </Label>
+</StackPane>

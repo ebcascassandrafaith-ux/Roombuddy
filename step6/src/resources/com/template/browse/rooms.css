@@ -1,0 +1,49 @@
+/* Property page (one house, many rooms) and the rent terms box of the room page.
+   Loaded by property_view.fxml and listing_details_view.fxml, so style.css does not need to change. */
+
+/* ---------- property page ---------- */
+.property-banner {
+    -fx-background-color: #AFC8E6;
+    -fx-background-radius: 28;
+    -fx-padding: 26 28 22 28;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.16), 14, 0.05, 0, 4);
+}
+.property-title { -fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white; }
+.property-headline { -fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white; }
+.property-facts { -fx-font-size: 12px; -fx-text-fill: white; }
+
+.room-card {
+    -fx-background-color: linear-gradient(to bottom, #FFEFB9, white);
+    -fx-background-radius: 26;
+    -fx-padding: 18 26 18 22;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.14), 12, 0.05, 0, 3);
+}
+.room-name { -fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #111111; }
+.room-price { -fx-font-size: 15px; -fx-text-fill: #222222; }
+.occupied-text { -fx-text-fill: #C0392B; -fx-font-weight: bold; -fx-font-size: 12.5px; }
+
+.room-button {
+    -fx-background-color: #86A8D6;
+    -fx-background-radius: 20;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-padding: 9 28 9 28;
+    -fx-cursor: hand;
+}
+.room-button:hover { -fx-background-color: -rb-blue; }
+.room-button:disabled { -fx-background-color: #C9CED4; -fx-opacity: 1; }
+
+.host-card {
+    -fx-background-color: #DCEEFB;
+    -fx-background-radius: 26;
+    -fx-padding: 22 30 22 30;
+}
+
+/* ---------- room page: "3 months advance / 2 months deposit" ---------- */
+.rent-terms {
+    -fx-background-color: #FFE9A0;
+    -fx-background-radius: 20;
+    -fx-padding: 16 10 16 10;
+}
+.terms-number { -fx-font-size: 34px; -fx-font-weight: bold; -fx-text-fill: #111111; }
+.terms-text { -fx-font-size: 12px; -fx-text-fill: #333333; }
